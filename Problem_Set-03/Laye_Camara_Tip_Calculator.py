@@ -10,7 +10,7 @@ total_amount = cost_of_meal +tip
 
 #display
 print(f"Tip amount: {tip:.2f}")
-print(f"Total amount: $ {total_amount:.2f}")
+print(f"Total amount: ${total_amount:.2f}")
 
 
 
