@@ -2,9 +2,9 @@ print("\nLetter Grade Converter")
 print()
 
 #Initialize a variable
-letter = "y"
+continue_program = "y"
 
-while letter.lower() == "y":
+while continue_program.lower() == "y":
     grade = int(input("Enter your grade: "))
 
     if grade >= 88 and grade <= 100:
@@ -19,7 +19,7 @@ while letter.lower() == "y":
         print("F")
 
 # Asking if the user wants to continue
-    letter = (input("Continue? (y/n): "))
+    continue_program = (input("Continue? (y/n): "))
     print()
 
 # Corrected print statement
