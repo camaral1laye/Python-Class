@@ -18,7 +18,9 @@ def calculate_change(cents):
 
 while True:
     # Get user input for number of cents
+    print()
     cents = int(input("Enter the number of cents (0-99): "))
+    print()
     
     # Call the function to calculate the change
     quarters, dimes, nickels, pennies = calculate_change(cents)
@@ -30,7 +32,9 @@ while True:
     print(f"Pennies:  {pennies}")
     
     # Ask if the user wants to continue
-    choice = input("Would you like to calculate again? (y/n): ")
+    print()
+    choice = input("Continue? (y/n): ")
+    print()
     
     # Exit loop if the user chooses not to continue
     if choice.lower() != "y":
