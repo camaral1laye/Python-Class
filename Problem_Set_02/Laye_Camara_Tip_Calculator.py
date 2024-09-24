@@ -31,8 +31,3 @@ print(f" Total amount: {total_amount_20}")
 print()
 print(f"25%\n Tip amount: ${tip_rates_25}")
 print(f" Total amount: {total_amount_25}")
-
-
-
-
-
