@@ -40,4 +40,4 @@ while True:
     if choice.lower() != "y":
         break
 
-print("Goodbye!")
+print("Bye!")
