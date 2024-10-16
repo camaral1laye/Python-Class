@@ -15,11 +15,14 @@ def get_factors(num):
         if num % i == 0:
             factors.append(i)
     if len(factors) == 2:
-        print(f"{num} is a prime.") 
+        print(f"{num} is a prime.")
+        print() 
     else:
         print(f"{num} is not a prime")
         print(f"It has a {len(factors)} factors:", end = " ")
+        print()
         for factor in factors:
+    
             print(factor, end = " ")
         print()
 def main():
@@ -28,7 +31,10 @@ def main():
     while choice.lower() == "y":
         num = get_num()
         get_factors(num)
+        print()
         choice = input("Try again? (y/n): ")
+        print()
+    print()
     print("Bye!")
 
 if __name__ == "__main__":
