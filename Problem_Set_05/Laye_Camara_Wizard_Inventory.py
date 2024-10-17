@@ -9,8 +9,8 @@ inventory = [
 MAX_ITEMS = 4
 
 def display_menu():
-    print("\n** The Wizard Inventory Program **")
-    print("\n** COMMAND MENU **")
+    print("The Wizard Inventory Program\n")
+    print("COMMAND MENU")
     print("- show - Show all items")
     print("- grab - Grab an item")
     print("- edit - Edit an item")
@@ -21,7 +21,7 @@ def show_items():
     if not inventory:
         print("Your inventory is empty.")
     else:
-        print("Your inventory:")
+       # print("Your inventory:")
         for index, item in enumerate(inventory, start=1):
             print(f"{index}. {item}")
 
