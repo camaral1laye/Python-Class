@@ -1,40 +1,40 @@
 def load_sales(filename):
-    sales = {}
     try:
         with open(filename, 'r') as file:
-            for line in file:
-                month, amount = line.split()
-                sales[month] = float(amount)
+            sales = [float(line.strip()) for line in file]
+        return sales
     except FileNotFoundError:
-        print(f"Error: {filename} not found. A new file will be created.")
-    return sales
+        return []
 
 def save_sales(filename, sales):
     with open(filename, 'w') as file:
-        for month, amount in sales.items():
-            file.write(f"{month} {amount:.2f}\n")
+        for sale in sales:
+            file.write(f"{sale}\n")
 
 def view_sales(sales):
-    month = input("Three-letter Month: ").lower()
-    if month in sales:
-        print(f"Sales amount for {month.capitalize()} is {sales[month]:,.2f}.")
-    else:
-        print("Invalid three-letter month.")
+    for i, sale in enumerate(sales, start=1):
+        print(f"Month {i}: {sale:,.2f}")
 
 def edit_sales(sales):
-    month = input("Three-letter Month: ").lower()
-    if month in sales:
-        new_amount = float(input("Sales Amount: "))
-        sales[month] = new_amount
-        print(f"Sales amount for {month.capitalize()} is {sales[month]:,.2f}.")
+    month = int(input("Enter month number to edit: "))
+    if 1 <= month <= len(sales):
+        new_sale = float(input("Enter new sales amount: "))
+        sales[month - 1] = new_sale
     else:
-        print("Invalid three-letter month.")
+        print("Invalid month number.")
 
 def show_totals(sales):
-    total = sum(sales.values())
+    total = sum(sales)
     average = total / len(sales) if sales else 0
-    print(f"Yearly total: {total:,.2f}")
+    print(f"Total sales: {total:,.2f}")
     print(f"Monthly average: {average:,.2f}")
+
+def add_sales(filename, sales):
+    new_sale = float(input("Enter sales amount for the new month: "))
+    sales.append(new_sale)
+    with open(filename, 'a') as file:
+        file.write(f"{new_sale}\n")
+    print(f"Added sales for new month: {new_sale:,.2f}")
 
 def main():
     filename = "monthly_sales.txt"
@@ -49,6 +49,8 @@ def main():
             save_sales(filename, sales)  # Save changes after editing
         elif command == "totals":
             show_totals(sales)
+        elif command == "add":
+            add_sales(filename, sales)
         elif command == "exit":
             print("Bye!")
             break
