@@ -1,7 +1,7 @@
 #The user interface for the Create Account program
 def get_full_name():
     while True:
-        full_name = input("Enter full name: ").strip()
+        full_name = (input("Enter full name: ")).strip()
         if " " in full_name:  # Check if there's a space separating first and last name
             return full_name
         else:
